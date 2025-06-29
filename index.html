@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crypto Crazy</title>
+  <style>
+/* ESTRUTURA BASE */ 
+      body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      }
+	  
+/* ESTRUTURA FOLDER */ 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      }
+
+/* ESTRUTURA MENU LATERAL */
+      nav.side-menu {
+      background-color: #111;
+      width: 50px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+      gap: 20px;
+      transition: width 0.3s ease;
+      overflow: hidden;
+      z-index: 900;
+      }
+	
+      nav.side-menu:hover {
+      width: 220px;
+      box-shadow: 2px 0 8px rgba(0, 255, 204, 0.7);
+      }
+
+      nav.side-menu .home-icon {
+      width: 50px;
+      height: 50px;
+      fill: #00FFFF;
+      margin-bottom: 50px;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      }
+
+      nav.side-menu button {
+      width: 160px;
+      padding: 15px 0;
+      background-color: #00FFFF;
+      color: #000000;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(-20px);
+      pointer-events: none;
+      }
+
+      nav.side-menu:hover button {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+      transition-delay: 0.15s;
+      }
+
+      nav.side-menu button:hover {
+      background-color: #ffffff;
+      }
+
+/* ESTRUTURA CARROSEL BANNERS */
+     .carousel-container {
+      position: fixed;
+      top: 0;
+      left: 50px;
+      right: 0;
+      height: 110px;
+      overflow: hidden;
+      background-color: #000;
+      padding: 10px 0;
+      border-bottom: 2px solid #00ffcc;
+      z-index: 1001;
+      transition: left 0.3s ease;
+      display: flex;
+      align-items: center;
+      }
+
+      nav.side-menu:hover ~ .carousel-container {
+      left: 220px;
+      }
+
+     .carousel-track {
+      display: flex;
+      width: max-content;
+      animation: scroll-left 20s linear infinite;
+      align-items: center;
+      gap: 50px;
+      padding-left: 100%;
+      }
+
+      @keyframes scroll-left {
+      0% {
+      transform: translateX(0%);
+      }
+      100% {
+      transform: translateX(-100%);
+      }
+      }
+
+/* ESTRUTURA PRINCIPAL */
+      main {
+	  text-align: center; 
+	  margin-left: 100px;
+      margin-top: 100px;
+      padding: 40px 20px;
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: margin-left 0.3s ease;
+      }
+
+      h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #00ffcc;
+      text-align: center;
+      }
+
+      p.description {
+      font-size: 1.2em;
+      color: #ccc;
+      margin-bottom: 30px;
+      text-align: center;
+      }
+
+      .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 220px;
+      }
+
+     .buttons a {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      padding: 15px 20px;
+      border-radius: 10px;
+      text-align: center;
+      display: block;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      }
+
+ 
+/* ESTRUTURA TEXTO E BOTÕES ABAIXO DOS BANNERS */  
+.top-right-title {
+  position: fixed;
+  top: 125px;
+  right: 5px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #FFFF00;
+  background-color: #000;
+  padding: 5px 10px;
+  z-index: 998;
+  text-align: right;
+  text-align: justify;
+   animation: blink 1s infinite;
+
+}
+.glow-text {
+  animation: glowPulse 1.5s infinite ease-in-out;
+  color: #FFFF00;
+  font-weight: bold;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.6;
+    filter: brightness(100%);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(160%);
+  }
+}
+
+
+.top-right-buttons {
+  position: fixed;
+  top: 180px; 
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 998;
+}
+
+.top-right-buttons a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-align: center;
+  display: block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 160px;
+}
+
+.top-right-buttons a.rollercoin {
+  background-color: #001f3f;
+  color: #fff;
+  border: 2px solid #004080;
+}
+
+.top-right-buttons a.rollercoin:hover {
+  background-color: #003366;
+  transform: scale(1.05);
+}
+
+.top-right-buttons a.limercoin {
+  background-color: #ccff00;
+  color: #000;
+  border: 2px solid #99cc00;
+}
+
+.top-right-buttons a.limercoin:hover {
+  background-color: #b3e600;
+  transform: scale(1.05);
+}
+
+.top-right-buttons a.blocklooter {
+  background-color: #4b0082;
+  color: #fff;
+  border: 2px solid #38006b;
+}
+
+.top-right-buttons a.blocklooter:hover {
+  background-color: #36005c;
+  transform: scale(1.05);
+}
+
+
+
+
+
+/* ESTRUTURA RODAPÉ DIREITO */	
+	  footer {
+      position: fixed;
+      bottom: 10px;
+      right: 20px;
+      font-size: 0.9em;
+      color: #666;
+      text-align: right;
+      z-index: 1000;
+      }
+	  @media (max-width: 600px) {
+      nav.side-menu {
+      display: none;
+      }  
+      }
+	  
+/* ESTRUTURA RODAPÉ ESQUERDO */
+	  .footer-warning {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #111;
+  color: #ffcc00;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 0.9em;
+  box-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+  z-index: 999;
+}
+
+.footer-warning svg {
+  width: 20px;
+  height: 20px;
+  fill: #ffcc00;
+  flex-shrink: 0;
+}
+
+	  
+	  
+  </style>
+</head>
+
+<body>
+  <!-- Menu lateral fixo -->
+  <nav class="side-menu">
+    <svg class="home-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="Home" role="img">
+      <path d="M32 12L8 36h8v16h12V40h4v12h12V36h8z"/>
+    </svg>
+  	<button onclick="location.href='file:///C:/Users/erixb/OneDrive/Documentos/MEU/SITE%20PROJETOS.html'">Projetos</button>
+   <button onclick="location.href='file:///C:/Users/erixb/OneDrive/Documentos/SITE%20JOGOS%20NFT.HTML'">Jogos NFT</button>
+	<button type="button">Jogos Telegram</button>
+	<button onclick="location.href='file:///C:/Users/erixb/OneDrive/Documentos/SITE%20PLATAFORMAS.html'">Plataformas</button>
+  </nav>
+
+  <!-- Carrossel de banners ao lado do menu -->
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <a href="https://rollercoin.com/?r=lfiww6qx" target="_blank">
+        <img src="https://static.rollercoin.com/static/img/ref/gen2/w728h90.gif" alt="RollerCoin" />
+      </a>
+      <a href="https://limercoin.com/?ref=lqbyzzjd" target="_blank" rel="noopener noreferrer">
+        <img src="https://static.limercoin.com/promo/v1/dark/728x90.png" alt="Limercoin" />
+      </a>
+    </div>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <main>
+    <h1>Crypto Crazy</h1>
+    <p class="description">O Site tem por objetivo divulgar projetos, jogos e toda geração Web3 no uso de tecnologias blockchain e criptomoedas. </p>
+
+  </main>
+ 
+
+  <div class="top-right-title glow-text">Top 3 sites</br> mineração gratuita<br></div>
+
+<div class="top-right-buttons">
+  <a class="rollercoin" href="https://rollercoin.com/?r=lfiww6qx" target="_blank">RollerCoin</a>
+  <a class="limercoin" href="https://limercoin.com/?ref=lqbyzzjd" target="_blank">Limercoin</a>
+  <a class="blocklooter" href="https://blocklooter.com/?r=8085" target="_blank">Blocklooter</a>
+</div>
+
+
+
+<div class="footer-warning">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Alerta">
+    <path fill="currentColor" d="M12 2L1 21h22L12 2zm0 14a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-1-8h2v6h-2V8z"/>
+  </svg>
+  <span>O conteúdo do site pode conter manutenções e alterações.</span>
+</div>
+
+
+  <footer>
+    &copy; 2025 Crypto Crazy. Todos os direitos reservados.
+  </footer>
+
+</body>
+</html>
