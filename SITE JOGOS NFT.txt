@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jogos NFT</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #00ffcc;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    nav.side-menu {
+      background-color: #111;
+      width: 50px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+      gap: 20px;
+      transition: width 0.3s ease;
+      overflow: hidden;
+      z-index: 900;
+    }
+
+    nav.side-menu:hover {
+      width: 220px;
+      box-shadow: 2px 0 8px rgba(0, 255, 204, 0.7);
+    }
+/* ESTRUTURA ICONE MENU ESQUERDO */
+    nav.side-menu .home-icon {
+      width: 50px;
+      height: 50px;
+      fill: #00FFFF;
+      margin-bottom: 50px;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    nav.side-menu button {
+      width: 160px;
+      padding: 15px 0;
+      background-color: #555555;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(-20px);
+      pointer-events: none;
+    }
+
+    nav.side-menu:hover button {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+      transition-delay: 0.15s;
+    }
+
+    nav.side-menu button:hover {
+      background-color: #777777;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 40px;
+    }
+
+    .text-button-container,
+    .pirate-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      text-align: justify;
+      flex-wrap: wrap;
+      gap: 30px;
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 40px;
+    }
+
+    .description,
+    .pirate-description,
+    .chainers-description {
+      flex: 1;
+      max-width: 500px;
+      color: #ccc;
+      font-size: 1.2em;
+      text-align: justify;
+    }
+
+    .sunflower-button,
+    .pirate-button,
+    .chainers-button {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      padding: 15px 20px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+	  width: 180px; /* você pode ajustar esse valor conforme desejar */
+  text-align: center;
+    }
+
+    .sunflower-button {
+      border: 2px solid #87CEEB;
+      color: #006400;
+      background-color: #87CEEB;
+    }
+
+    .sunflower-button:hover {
+      background-color: #006400;
+      color: #87CEEB;
+      transform: scale(1.05);
+    }
+
+    .pirate-button {
+      border: 2px solid #5c4033;
+      color: #ffff99;
+      background-color: #5c4033;
+    }
+
+    .pirate-button:hover {
+      background-color: #ffff99;
+      color: #5c4033;
+      transform: scale(1.05);
+    }
+
+    .chainers-button {
+      border: 2px solid #ffc30b;
+      color: #333333;
+      background-color: #ffc30b;
+    }
+
+    .chainers-button:hover {
+      background-color: #333333;
+      color: #ffc30b;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .text-button-container,
+      .pirate-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .description,
+      .pirate-description,
+      .chainers-description {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="side-menu">
+    <svg class="home-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="Home" role="img">
+      <path d="M32 12L8 36h8v16h12V40h4v12h12V36h8z"/>
+    </svg>
+    <button onclick="location.href='file:///C:/Users/erixb/OneDrive/Documentos/SITE%20PROJETOS.html'">Início</button>
+       <button type="button">Jogos Telegram</button>
+    <button onclick="location.href='file:///C:/Users/erixb/OneDrive/Documentos/SITE%20PLATAFORMAS.html'">Plataformas</button>
+  </nav>
+
+  <h1>Explore e negocie seus NFTs</h1>
+
+  <div class="text-button-container">
+    <p class="description">
+      Uma fazendinha onde é possível plantar e cultivar diversas sementes, cortes de árvores, minerações de recursos, pesquisas de upgrade, pescas marinhas, buscas de tesouros e muito mais. Crie NFTs no jogo onde é possível trocar e vender em mercados secundários.
+    </p>
+    <a class="sunflower-button" href="https://sunflower-land.com/play/?ref=Erix" target="_blank" rel="noopener noreferrer">Sunflower Land</a>
+  </div>
+
+  <div class="pirate-container">
+    <p class="pirate-description">
+      Colha recursos para construir seu navio e batalhe pelas ilhas contra monstros e outros jogadores, negocie piratas, navios e recursos no marketplace.
+    </p>
+    <a class="pirate-button" href="https://piratenation.game/signup?code=P-cold-plank-4735" target="_blank" rel="noopener noreferrer">Pirate Nation</a>
+  </div>
+
+  <div class="pirate-container">
+    <p class="chainers-description">
+      Obtenha um NFT grátis diariamente. Construa sua fazenda, colha cultivos e obtenha recompensas diárias em criptomoedas, NFTs e muito mais.
+    </p>
+    <a class="chainers-button" href="https://chainers.io/?r=lzlux8us" target="_blank" rel="noopener noreferrer">Chainers</a>
+  </div>
+
+</body>
+</html>
